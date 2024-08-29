@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">AI<span>Examiner</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">New Document</a></li>
+                    <li><a href="#">All Documents</a></li>
+                </ul>
+            </nav>
+            <div class="recent-documents">
+                <h3>Recent Documents</h3>
+                <ul>
+                    <li>Ban</li>
+                    <li>Ban</li>
+                    <li>C Sharp</li>
+                </ul>
+            </div>
+            <a href="#" class="logout">Logout</a>
+        </aside>
+
+        <main class="main-content">
+            <h1>New Document</h1>
+            <form>
+                <div class="form-group">
+                    <label for="document-title">Document Title</label>
+                    <input type="text" id="document-title" placeholder="Enter the title of the document you want to upload">
+                </div>
+
+                <div class="form-group file-upload">
+                    <label for="file-upload">
+                        <div class="upload-icon">
+                            <img src="cloud-upload-icon.png" alt="Upload">
+                        </div>
+                        Click to upload file
+                    </label>
+                    <input type="file" id="file-upload">
+                    <p>Maximum File Size: 15mb | Allowed File Types: pdf, docx, pptx</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-type">Question Type
+                        <img src="warning-icon.png" alt="Warning" class="warning-icon">
+                    </label>
+                    <select id="question-type">
+                        <option>Multiple Choice</option>
+                        <option>True/False</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-number">Number of Questions
+                        <img src="warning-icon.png" alt="Warning" class="warning-icon">
+                    </label>
+                    <input type="number" id="question-number" value="3">
+                </div>
+
+                <button type="submit" class="generate-btn">Generate Questions</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

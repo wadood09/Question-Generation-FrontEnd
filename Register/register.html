@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/Signin/signin.css">
+    <link rel="stylesheet" href="/general.css">
+    <script type="module" src="register.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/general.js"></script>
+    <script src="/axios-config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span id="toast-icon" class="toast-icon">&#9888;</span>
+            <span id="toast-message" class="toast-message">Message goes here</span>
+            <span class="toast-close" onclick="closeToast()">&times;</span>
+        </div>
+        <div class="toast-progress"></div> <!-- Progress bar -->
+    </div>
+
+    <div class="container">
+        <div class="input-form">
+            <h2>Create Account</h2>
+            <p class="subheading">Enter your credentials to create your account</p>
+            <form id="register-form">
+                <div class="input-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="Enter your first name" required>
+                </div>
+                <div class="input-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Enter your last name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                    <i class="fa fa-users fas icon"></i>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <i class="fa fa-users fas icon"></i>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                    <i class="fa fa-users fas icon"></i>
+                    <p id="errorMessage" class="error"></p>
+                </div>
+                <button type="submit" class="form-button">Register</button>
+            </form>
+            <p class="footer-text">Already have an account? <a href="/Signin/signin.html">Login</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

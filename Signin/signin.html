@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="signin.css">
+    <script type="module" src="signin.js"></script>
+    <link rel="stylesheet" href="/general.css">
+    <script type="module" src="/general.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/axios-config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <span id="toast-icon" class="toast-icon">&#9888;</span>
+            <span id="toast-message" class="toast-message">Message goes here</span>
+            <span class="toast-close" onclick="closeToast()">&times;</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="input-form">
+            <h2>Log In</h2>
+            <p class="subheading">Enter your credentials to access your account</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                    <i class="fa fa-users fas icon"></i>
+                </div>
+                <div class="input-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <i class="fa fa-users fas icon"></i>
+                </div>
+                <button type="submit" class="form-button">Login</button>
+            </form>
+            <div id="conflict-modal" class="modal">
+                <div class="modal-content">
+                    <span id="modal-close-btn" class="modal-close-btn">&times;</span>
+                    <p id="modal-message">Conflict message goes here.</p>
+                    <button id="modal-action-btn" class="modal-action-btn">Take Action</button>
+                </div>
+            </div>
+            <div id="message-modal" class="modal">
+                <div class="modal-content">
+                    <span id="modal-close-btn" class="modal-close-btn">&times;</span>
+                    <p id="modal-message">Message goes here.</p>
+                    <button id="modal-ok-btn" class="modal-action-btn">Ok</button>
+                </div>
+            </div>
+            <p class="or">Or</p>
+            <div id="g_id_onload"
+                data-client_id="454116038348-bb7p5s9ap2ktc17kk561qhdc0htr6mvg.apps.googleusercontent.com"
+                data-context="signin" 
+                data-ux_mode="popup" 
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
+            <p class="footer-text">Are you new here? <a href="/Register/register.html">Create Account</a></p>
+            <p class="footer-text">Can't remember your password? <a href="/ResetPassword/forgotPassword.html">Reset
+                    Password</a></p>
+        </div>
+    </div>
+</body>
+</html>

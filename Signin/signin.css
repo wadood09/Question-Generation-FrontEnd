@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.input-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.subheading {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    font-size: 12px;
+    color: #666;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.icon {
+    position: absolute;
+    right: 10px;
+    top: 65%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 6px;
+    text-align: left;
+}
+
+.form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4f1e66;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-button:hover {
+    background-color: #3e164d;
+}
+
+.or {
+    color: #666;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.google-signin {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.google-signin img {
+    margin-right: 10px;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.footer-text a {
+    color: #4f1e66;
+    text-decoration: none;
+}
+
+.footer-text a:hover {
+    text-decoration: underline;
+}
