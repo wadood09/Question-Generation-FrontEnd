@@ -9,6 +9,7 @@ loginForm.addEventListener('submit', async (event) => {
     console.log('Checkpoint 1')
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
+    const checkbox = document.querySelector('#remember-me')
 
     console.log('Checkpoint 2')
     try {
@@ -16,6 +17,7 @@ loginForm.addEventListener('submit', async (event) => {
             {
                 email: email,
                 password: password,
+                rememberMe: checkbox.checked
             },
             { skipInterceptors: true }
         );
@@ -27,6 +29,7 @@ loginForm.addEventListener('submit', async (event) => {
                 console.log('Checkpoint 200')
                 const accessToken = response.data.accessToken;
                 localStorage.setItem('access-token', accessToken);
+                localStorage.setItem('role', response.data.role )
                 window.location.replace('/Home/home.html');
                 break;
             case 409:
@@ -45,7 +48,8 @@ loginForm.addEventListener('submit', async (event) => {
         }
     } catch (error) {
         console.log('Checkpoint error')
-        showMessageModal('error')
+        const errorMessage = error.response ? error.response.data.message : 'Login failed. Please try again.';
+        showToast({message: errorMessage});
         console.error('There was a problem with the axios request:', error);
     }
 });
@@ -65,7 +69,6 @@ async function handleCredentialResponse(response) {
         window.location.replace('/home');
     } catch (error) {
         const errorMessage = error.response ? error.response.data.message : 'Login failed. Please try again.';
-        document.querySelector('#toast').textContent = errorMessage;
         showToast({message: errorMessage});
     }
 }

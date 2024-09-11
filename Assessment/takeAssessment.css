@@ -1,0 +1,324 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #2E004F;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.main-content {
+    margin-left: 250px;
+    flex-grow: 1;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 70px;
+    padding-right: 70px;
+    padding-left: 70px;
+    font-size: small;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+}
+
+
+.main-container {
+    display: flex;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+}
+
+.container {
+    width: 70%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* Container Styling */
+.container {
+    max-width: 1536px;
+    /* Equivalent to max-w-screen-2xl */
+    margin: 0 auto;
+    /* Center the container */
+    padding: 2.5rem 2.5rem;
+    /* px-10 */
+    padding-top: 2.5rem;
+    /* py-10 */
+    max-width: 1536px;
+    max-height: calc(100vh - 4rem);
+    /* Adjust height as needed */
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+    scrollbar-width: none;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 0.5rem;
+        /* max-sm:px-2 */
+        padding-right: 0.5rem;
+    }
+}
+
+/* Flex Container for the Questions */
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    /* gap-[80px] - 80px */
+}
+
+/* Question Card */
+.question-card {
+    width: 90%;
+    background-color: #f8fafc;
+    padding: 50px;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: medium;
+}
+
+/* Text styling for questions */
+.question-number {
+    font-size: 1.125rem;
+    /* text-lg */
+    color: #360B58;
+}
+
+.question-text {
+    margin: 2rem 0;
+    /* my-8 */
+    font-weight: 600;
+    /* font-semibold */
+    font-size: 1.125rem;
+    /* text-lg */
+}
+
+/* Options Container */
+.options-container {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Option Styling */
+.option {
+    border: 2px solid #e5e7eb;
+    /* border-gray-200 */
+    min-height: 50px;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.option:hover {
+    border-color: #9370db;
+}
+
+.option.selected {
+    background-color: #9370db;
+    /* Selected option */
+    border-color: #9370db;
+    color: white;
+}
+
+/* Submit Button */
+.submit-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Custom Button Styling */
+.custom-button {
+    background-color: #360B58;
+    /* styles_contained__XGZSr */
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #5e2a85;
+    /* Slightly lighter shade for hover */
+}
+
+/* Backdrop and Modal Container */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(1.5px);
+    background: rgba(0, 0, 0, 0.384);
+}
+
+/* Modal Box */
+.modal-box {
+    width: 100%;
+    max-width: 400px;
+    max-width: 320px;
+    /* Mobile View */
+    padding: 2rem 1.75rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Title */
+.modal-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Score Circle */
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border: 2px solid rgb(239, 68, 68);
+    background-color: rgb(254, 205, 211);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+/* Score Text */
+.score-percentage {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Retry Text */
+.retry-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Message Text */
+.modal-message {
+    font-size: 0.875rem;
+    color: #6b7280;
+    /* Tailwind's gray-500 */
+    text-align: center;
+}
+
+/* Review Button */
+.review-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #4f46e5;
+    /* Tailwind's indigo-600 */
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-button:hover {
+    background-color: #4338ca;
+    /* Tailwind's indigo-700 */
+}
+
+.wrong-message {
+    font-weight: bold;
+    padding-bottom: 16px;
+    color: #dc2626;
+}
+
+.success-message {
+    font-weight: bold;
+    padding-bottom: 16px;
+    color: #20be50;
+}
+
+.elucidation {
+    font-size: 0.875rem;
+    /* Small text size, typically 14px */
+
+    font-weight: 600;
+    /* Semibold font weight */
+
+    color: #2563eb;
+    /* Blue color, usually a shade of blue in Tailwind CSS */
+}

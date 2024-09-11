@@ -10,11 +10,12 @@ const axiosInstance = axios.create({
 // Request Interceptor
 axiosInstance.interceptors.request.use(
     (config) => {
-        if (config.skipInterceptors) {
+        if (config.skipInterceptors === true) {
             return config;
         }
         console.log('Request Interceptor Active');
         config.headers['Authorization'] = `Bearer ${localStorage.getItem('access-token')}`;
+        console.log(config)
         return config;
     },
     (error) => Promise.reject(error)
@@ -23,7 +24,7 @@ axiosInstance.interceptors.request.use(
 // Response Interceptor
 axiosInstance.interceptors.response.use(
     (response) => {
-        if (response.config.skipInterceptors) {
+        if (response.config.skipInterceptors === true) {
             return response;
         }
         console.log('Response Interceptor Active');
@@ -31,7 +32,7 @@ axiosInstance.interceptors.response.use(
     },
     async (error) => {
         const originalRequest = error.config;
-
+        console.log('Response Interceptor Active');
         if (error.config.skipInterceptors) {
             return Promise.reject(error);
         }
@@ -41,7 +42,7 @@ axiosInstance.interceptors.response.use(
             originalRequest._retry = true;
             try {
                 // Send a request to your backend to refresh the token
-                await axios.post('/refresh-token', {}, { withCredentials: true });
+                await axiosInstance.post('/refresh-token', {}, { withCredentials: true });
 
                 var newAccessToken = localStorage.getItem('access-token');
                 if (newAccessToken) {
@@ -49,13 +50,16 @@ axiosInstance.interceptors.response.use(
                 }
 
                 // Retry the original request
+                console.log(originalRequest)
+                console.log('hgcmfxmm')
                 return axiosInstance(originalRequest);
             } catch (refreshError) {
-                // Handle refresh token error (e.g., redirect to login)
+                window.location.href = '/Signin/signin.html'
+                console.error('Error refreshing token:', refreshError);
                 return Promise.reject(refreshError);
             }
         }
-
+        console.log('Axios response interceptor', error)
         return Promise.reject(error);
     }
 );

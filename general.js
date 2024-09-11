@@ -17,24 +17,19 @@ function showToast({ message, type = null }) {
     switch (type) {
         case "success":
             toast.classList.add("toast-success");
-            progressBar.style.backgroundColor = "#28a745"; // Green for success
             toastIcon.innerHTML = `<div class="icon-circle success-icon">&#10003;</div>`;
             break;
         case "info":
             toast.classList.add("toast-info");
-            progressBar.style.backgroundColor = "#17a2b8"; // Blue for info
             toastIcon.innerHTML = `<div class="icon-circle info-icon">&#8505;</div>`;
             break;
         default:
             toast.classList.add("toast-error");
-            progressBar.style.backgroundColor = "#ff4d4f"; // Red for error
             toastIcon.innerHTML = `<div class="icon-circle error-icon">&#9888;</div>`;
     }
 
     // Show the toast and reset the progress bar animation
     toast.classList.add("show");
-    progressBar.style.width = "100%"; // Reset width before animation
-    progressBar.style.animation = `progressBar ${remainingTime / 1000}s linear forwards`;
 
     // Start the timeout
     clearTimeout(toastTimeout);
@@ -46,19 +41,12 @@ function showToast({ message, type = null }) {
         clearTimeout(toastTimeout);
         let elapsedTime = new Date().getTime() - startTime;
         remainingTime -= elapsedTime;
-
-        // Pause progress bar animation
-        progressBar.style.animationPlayState = 'paused';
     });
 
     // Resume the animation on mouseleave
     toast.addEventListener('mouseleave', function () {
         startTime = new Date().getTime();
         toastTimeout = setTimeout(hideToast, remainingTime);
-
-        // Resume progress bar animation
-        progressBar.style.animation = `progressBar ${remainingTime / 1000}s linear forwards`;
-        progressBar.style.animationPlayState = 'running';
     });
 }
 

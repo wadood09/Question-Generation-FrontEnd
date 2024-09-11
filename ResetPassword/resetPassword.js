@@ -1,29 +1,31 @@
 import { showMessageModal } from '../general.js';
 
-const passwordForm = document.querySelector('#password-form');
-const emailForm = document.querySelector('#email-form');
+document.addEventListener('DOMContentLoaded', () => {
+    const passwordForm = document.querySelector('#password-form');
+    const emailForm = document.querySelector('#email-form');
 
-passwordForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent form submission
-    
-    const passwordInput = document.querySelector('#password');
-    const confirmPasswordInput = document.querySelector('#confirm-password');
-    let errorMessage = document.querySelector('#errorMessage');
+    passwordForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent form submission
 
-    if (passwordInput.value !== confirmPasswordInput.value) {
-        errorMessage.textContent = 'Passwords do not match';
-    } else {
-        errorMessage.textContent = ''; // Clear error message
-        resetPassword(passwordInput.value)
-    }
-});
+        const passwordInput = document.querySelector('#password');
+        const confirmPasswordInput = document.querySelector('#confirm-password');
+        let errorMessage = document.querySelector('#errorMessage');
 
-emailForm.addEventListener('submit', () => {
-    event.preventDefault()
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            errorMessage.textContent = 'Passwords do not match';
+        } else {
+            errorMessage.textContent = ''; // Clear error message
+            resetPassword(passwordInput.value)
+        }
+    });
 
-    const emailInput = document.querySelector('#email');
-    sendResetLink(emailInput.value)
-});
+    emailForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const emailInput = document.querySelector('#email');
+        sendResetLink(emailInput.value)
+    });
+})
 
 async function sendResetLink(email) {
     try {
